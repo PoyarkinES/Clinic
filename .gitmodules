@@ -1,3 +1,6 @@
 [submodule "Servicies/REST/src/PatientRestApi"]
 	path = Servicies/REST/src/PatientRestApi
 	url = https://github.com/PoyarkinES/PatientRestApi.git
+[submodule "Servicies/gRPC/src/Dictionary"]
+	path = Servicies/gRPC/src/Dictionary
+	url = https://github.com/PoyarkinES/DictionaryGrpcService.git
