@@ -1,0 +1,34 @@
+version: '3.6'
+
+volumes:
+  mongodb_data:
+    driver: local
+   
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    restart: unless-stopped
+    
+  patientrestapi:
+    image: patient_rest_api
+    build: ./PatientRestApi
+    ports:
+      - "5301:8080"
+    container_name: patientapi
+
+  dictionaryservice:
+    image: dictionary_grpc_service
+    build: ./DictionaryGrpcService
+    ports:
+      - "5302:8080"
+    depends_on:
+      - mongodb
+    container_name: dictionaryservice
