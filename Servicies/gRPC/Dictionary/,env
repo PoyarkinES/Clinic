@@ -1,0 +1,4 @@
+nano .env  
+
+RUNNER_NAME=DictionaryGrpcService  
+REGISTRATION_TOKEN=GR134894144RNGdHoVLbwrTx3ig-B  

@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+option csharp_namespace = "Service";
+
+package country;
+
+service CountriesServiceProto{
+	rpc CreateCountry(CreateCountryRequest) returns (CreateCountryResponse);
+	rpc GetCountry(GetCountryRequest) returns (GetCountryResponse);
+	rpc GetCountries(GetCountriesRequest) returns (GetCountriesResponse);
+	rpc UpdateCountry(UpdateCountryRequest) returns (UpdateCountryResponse);
+	rpc DeleteCountry(DeleteCountryRequest) returns (DeleteCountryResponse);
+}
+
+message CountryModel{
+	int32 countryId = 1;
+	string isocode = 2;
+	string fullname = 3;
+	string shortname = 4;
+	string alfa2code = 5;
+	string alfa3code = 6;
+	string created_at = 7;
+	string updated_at = 8;
+	string tags = 9;
+}
+
+message CreateCountryRequest{
+	int32 countryId = 1;
+	string isocode = 2;
+	string fullname = 3;
+	string shortname = 4;
+	string alfa2code = 5;
+	string alfa3code = 6;
+	string tags = 7;
+}
+
+message CreateCountryResponse{
+	bool success = 1;
+	string message = 2;
+	CountryModel country = 3;
+}
+
+message GetCountryRequest {
+	int32 countryId = 1;
+}
+
+message GetCountryResponse {
+	bool success = 1;
+	string message = 2;
+	CountryModel country = 3;
+}
+
+message GetCountriesRequest {
+	int32 page = 1;
+	int32 page_size = 2;
+}
+
+message GetCountriesResponse {
+	bool success = 1;
+	string message = 2;
+	repeated CountryModel country = 3;
+	int32 total_count = 4;
+}
+
+message UpdateCountryRequest {
+	int32 countryId = 1;
+	string isocode = 2;
+	string fullname = 3;
+	string shortname = 4;
+	string alfa2code = 5;
+	string alfa3code = 6;
+	string tags = 7;
+}
+
+message UpdateCountryResponse {
+	bool success = 1;
+	string message = 2;
+	CountryModel country = 3;
+}
+
+message DeleteCountryRequest {
+	int32 countryId = 1;
+}
+
+message DeleteCountryResponse {
+	bool success = 1;
+	string message = 2;
+}
