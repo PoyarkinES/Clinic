@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Servicies",
-    "\\Servicies\\gRPC",
-    "\\Servicies\\gRPC\\Dictionary"
+    ""
   ],
-  "SelectedNode": "\\Servicies\\gRPC\\Dictionary\\Service.sln",
+  "SelectedNode": "\\Service.sln",
   "PreviewInSolutionExplorer": false
 }

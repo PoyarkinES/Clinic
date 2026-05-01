@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36811.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{E22D3FEF-2E3F-4517-B1E8-94ECBFC90477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src\Service\Service.csproj", "{E22D3FEF-2E3F-4517-B1E8-94ECBFC90477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDataLayer", "MongoDataLayer\MongoDataLayer.csproj", "{5B30F8CC-B62B-DD61-BFF5-6F8A3A0DC275}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDataLayer", "src\MongoDataLayer\MongoDataLayer.csproj", "{5B30F8CC-B62B-DD61-BFF5-6F8A3A0DC275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
