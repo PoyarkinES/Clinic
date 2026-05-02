@@ -3,4 +3,4 @@
 	url = https://github.com/PoyarkinES/PatientRestApi.git
 [submodule "Servicies/gRPC/Dictionary"]
 	path = Servicies/gRPC/Dictionary
-	url = https://github.com/PoyarkinES/DictionaryGrpcService.git
+	url = https://github.com/PoyarkinES/Dictionary.git
