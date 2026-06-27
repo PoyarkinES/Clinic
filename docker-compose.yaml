@@ -17,18 +17,47 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=password
     restart: unless-stopped
     
-  patientrestapi:
-    image: patient_rest_api
+  rest_patient:
+    image: jjnius/rest_patient
+    container_name: rest/patient
     build: ./PatientRestApi
     ports:
-      - "5301:8080"
-    container_name: patientapi
+      - "5301:5301"
 
-  dictionaryservice:
-    image: dictionary_grpc_service
-    build: ./DictionaryGrpcService
+  grpc_country:
+    image: jjniuss/grpc_country
+    container_name: grpc/country
+    build: 
+      context: Clinic.CountryService
+      dockerfile: Clinic-Dictionary-Dockerfile
     ports:
-      - "5302:8080"
+      - "5302:5302"
     depends_on:
       - mongodb
-    container_name: dictionaryservice
+
+  rest_identity:
+    image: jjniuss/rest_identity
+    container_name: rest/identity
+    build:  
+      context: Clinic.Identity
+      dockerfile: Clinic-Identity-Dockerfile
+    ports:
+      - "5303:5303"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5303
+    depends_on:
+      - keycloak
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1.0
+    command: start-dev
+    environment:
+        KC_DB: postgres
+        KC_DB_URL: jdbc:postgresql://172.24.160.1:5432/Clinic.Identity
+        KC_DB_USERNAME: keycloak
+        KC_DB_PASSWORD: jnius
+        KC_BOOTSTRAP_ADMIN_USERNAME: admin
+        KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "27018:27018"
